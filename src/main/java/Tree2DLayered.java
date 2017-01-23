@@ -1,10 +1,10 @@
-package main;
-
 /**
  * Created by javlon on 21.01.17.
  */
 public class Tree2DLayered extends Tree {
-    Point[] y;
+    private Tree2DLayered left;
+    private Tree2DLayered right;
+    private Point[] y;
     private double[] linkL;
     private double[] linkR;
 
@@ -13,6 +13,10 @@ public class Tree2DLayered extends Tree {
         this.y = y;
         this.linkL = linkL;
         this.linkR = linkR;
+    }
+
+    public Point[] getY() {
+        return y;
     }
 
     public int query(Point a, Point b) {
@@ -37,12 +41,12 @@ public class Tree2DLayered extends Tree {
             return end - begin + 1;
         }
         if (left != null && a.getCor(dim - 2) <= left.getMaxP().getCor(dim - 2)) {
-            if ((int) Math.ceil(linkL[begin]) < ((Tree2DLayered) left).y.length && (int) Math.floor(linkL[end]) > -1)
-                count += ((Tree2DLayered) left).query(a, b, (int) Math.ceil(linkL[begin]), (int) Math.floor(linkL[end]));
+            if ((int) Math.ceil(linkL[begin]) < left.y.length && (int) Math.floor(linkL[end]) > -1)
+                count += left.query(a, b, (int) Math.ceil(linkL[begin]), (int) Math.floor(linkL[end]));
         }
         if (right != null && b.getCor(dim - 2) >= right.getMinP().getCor(dim - 2)) {
-            if ((int) Math.ceil(linkR[begin]) < ((Tree2DLayered) right).y.length && (int) Math.floor(linkR[end]) > -1)
-                count += ((Tree2DLayered) right).query(a, b, (int) Math.ceil(linkR[begin]), (int) Math.floor(linkR[end]));
+            if ((int) Math.ceil(linkR[begin]) < right.y.length && (int) Math.floor(linkR[end]) > -1)
+                count += right.query(a, b, (int) Math.ceil(linkR[begin]), (int) Math.floor(linkR[end]));
         }
         return count;
     }

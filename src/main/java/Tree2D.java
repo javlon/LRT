@@ -1,10 +1,8 @@
-package main;
-
 /**
  * Created by javlon on 22.01.17.
  */
 public class Tree2D extends Tree {
-    Point[] ys;
+    private Point[] ys;
 
     public Tree2D(Point minP, Point maxP, Tree left, Tree right, Point[] ys) {
         super(minP, maxP, left, right);

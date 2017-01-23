@@ -1,10 +1,8 @@
-package main;
-
 /**
  * Created by javlon on 22.01.17.
  */
 public class TreeKD extends Tree {
-    Tree link;
+    private Tree link;
 
     public TreeKD(Point minP, Point maxP, Tree left, Tree right, Tree link) {
         super(minP, maxP, left, right);

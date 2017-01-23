@@ -1,5 +1,3 @@
-package main;
-
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -36,7 +34,7 @@ public class Build {
         Arrays.sort(m, Comparator.comparingDouble(x -> x.getCor(dim - 1)));
         System.arraycopy(m, 0, y, 0, length);
         double[] linkL = new double[length];
-        Point[] yL = left.y;
+        Point[] yL = left.getY();
         for (int i = 0, ind = 0; i < length; i++) {
             if (ind < sizeL && y[i].equals(yL[ind])) {
                 linkL[i] = ind;
@@ -47,7 +45,7 @@ public class Build {
         }
 
         double[] linkR = new double[length];
-        Point[] yR = right.y;
+        Point[] yR = right.getY();
         for (int i = 0, ind = 0; i < length; i++) {
             if (ind < sizeR && y[i].equals(yR[ind])) {
                 linkR[i] = ind;

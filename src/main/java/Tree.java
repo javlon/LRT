@@ -1,5 +1,3 @@
-package main;
-
 /**
  * Created by javlon on 22.01.17.
  */
