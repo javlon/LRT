@@ -2,6 +2,8 @@
  * Created by javlon on 22.01.17.
  */
 public class Tree2D extends Tree {
+    //private Tree2D left;
+    //private Tree2D right;
     private Point[] ys;
 
     public Tree2D(Point minP, Point maxP, Tree left, Tree right, Point[] ys) {
@@ -29,7 +31,7 @@ public class Tree2D extends Tree {
     }
 
     @Override
-    int query(Point a, Point b, int k) {
+    public int query(Point a, Point b, int k) {
         return query(a, b);
     }
 }

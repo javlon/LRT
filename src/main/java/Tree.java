@@ -26,7 +26,7 @@ abstract class Tree {
 
     public abstract int query(Point a, Point b);
 
-    abstract int query(Point a, Point b, int k);
+    public abstract int query(Point a, Point b, int k);
 
     int binSearchInd(Point[] y, Point a, boolean bool) {
         int l = 0;

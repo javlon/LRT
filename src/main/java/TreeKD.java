@@ -2,6 +2,8 @@
  * Created by javlon on 22.01.17.
  */
 public class TreeKD extends Tree {
+    private TreeKD left;
+    private TreeKD right;
     private Tree link;
 
     public TreeKD(Point minP, Point maxP, Tree left, Tree right, Tree link) {
