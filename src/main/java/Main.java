@@ -1,9 +1,3 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.Random;
-import java.util.Scanner;
-
 /**
  * Created by javlon on 21.01.17.
  */
@@ -16,8 +10,8 @@ public class Main {
         points[1] = new Point(2, new double[]{0, 1});
         points[2] = new Point(2, new double[]{0, -2});
         points[3] = new Point(2, new double[]{1, 1});
-        Tree t1 = Build.doTree(points, 0, true);
-        Tree t2 = Build.doTree(points, 0, false);
+        Tree t1 = Build.doTree(points, true);
+        Tree t2 = Build.doTree(points, false);
         int n1 = t1.query(a, b);
         int n2 = t2.query(a, b);
         System.out.println("Layered range tree found: " + n1 +
