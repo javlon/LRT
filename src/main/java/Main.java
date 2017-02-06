@@ -1,5 +1,8 @@
-package main;
-
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Created by javlon on 21.01.17.
