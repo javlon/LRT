@@ -1,42 +1,34 @@
-package main;
-
 /**
  * Created by javlon on 22.01.17.
  */
 abstract class Tree {
-    Point minP;
-    Point maxP;
-    Tree left;
-    Tree right;
-    int dim;
+    protected double minP;
+    protected double maxP;
+    protected int k;
+    protected int dim;
 
-    public Tree(Point minP, Point maxP, Tree left, Tree right) {
-        this.minP = minP;
-        this.maxP = maxP;
-        this.left = left;
-        this.right = right;
+    public Tree(Point minP, Point maxP, int k) {
+        this.minP = minP.getCor(k);
+        this.maxP = maxP.getCor(k);
+        this.k = k;
         this.dim = minP.getDim();
     }
 
-    public Point getMinP() {
+    public double getMinP() {
         return minP;
     }
 
-    public Point getMaxP() {
+    public double getMaxP() {
         return maxP;
     }
 
-    public abstract int query(Point a, Point b);
-
-    abstract int query(Point a, Point b, int k);
-
-    int binSearchInd(Point[] y, Point a, boolean bool) {
+    protected int binSearchInd(double[] y, Point a, boolean bool) {
         int l = 0;
         int r = y.length - 1;
         if (bool) {
             while (l < r) {
                 int mid = (l + r) / 2;
-                if (y[mid].getCor(dim - 1) >= a.getCor(dim - 1)) {
+                if (y[mid] >= a.getCor(dim - 1)) {
                     r = mid;
                 } else {
                     l = mid + 1;
@@ -45,7 +37,7 @@ abstract class Tree {
         } else {
             while (l < r) {
                 int mid = (l + r) / 2 + 1;
-                if (y[mid].getCor(dim - 1) > a.getCor(dim - 1)) {
+                if (y[mid] > a.getCor(dim - 1)) {
                     r = mid - 1;
                 } else {
                     l = mid;
@@ -54,4 +46,6 @@ abstract class Tree {
         }
         return l;
     }
+
+    public abstract int query(Point a, Point b);
 }
